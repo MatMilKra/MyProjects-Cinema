@@ -7,12 +7,14 @@ import java.sql.SQLException;
 import java.util.Scanner;
 
 import MyProjects.Cinema.Model.Movie;
+import MyProjects.Cinema.Service.MovieRead;
 import MyProjects.Cinema.Service.MovieService;
 import MyProjects.Cinema.Service.MovieWrite;
 
 public class Menu {
 MovieService movieService;
 MovieWrite movieWrite;
+MovieRead movieRead;
 	
 	public Menu() {
 	super();
@@ -39,7 +41,7 @@ MovieWrite movieWrite;
 				break;
 
 			case 2:
-			//	find();
+				find();
 
 				break;
 				
@@ -66,5 +68,13 @@ MovieWrite movieWrite;
 		movieWrite=new MovieWrite();
 		movieWrite.addmovie(movie);
 		
+	}
+	
+	public void find() throws IOException, SQLException {
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		System.out.println("Find by title or description: ");
+		String string = br.readLine();
+		movieRead=new MovieRead();
+		movieRead.find(string);
 	}
 }
