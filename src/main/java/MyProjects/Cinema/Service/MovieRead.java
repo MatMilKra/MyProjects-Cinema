@@ -28,13 +28,13 @@ public class MovieRead {
 	public void find(String string) throws SQLException {
 		ResultSet rs;
 		List<Movie> listM = new ArrayList<>();
-		Movie movie = new Movie();
 		try {
 			ps.setString(1, "%" + string + "%");
 			ps.setString(2, "%" + string + "%");
 			rs = ps.executeQuery();
 
 			while (rs.next()) {
+				Movie movie = new Movie();
 				movie.setTitle(rs.getString(1));
 				movie.setDescription(rs.getString(2));
 				listM.add(movie);
