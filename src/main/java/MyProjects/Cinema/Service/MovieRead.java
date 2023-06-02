@@ -20,10 +20,10 @@ import MyProjects.Cinema.Model.Movie;
 
 public class MovieRead {
 	PreparedStatement ps;
-
+	Connection connection;
 	public MovieRead() throws SQLException {
 		DriverManager.registerDriver(new oracle.jdbc.OracleDriver());
-		Connection connection = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe","hr","hr");
+		connection = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe","hr","hr");
 		String query = "SELECT title, description FROM MOVIE WHERE title LIKE ? OR description LIKE ?";
 		ps = connection.prepareStatement(query);
 	}
@@ -55,5 +55,9 @@ Movie movie=new Movie();
 		System.out.println(listM);
 	}
 
-	
+	public void close() throws SQLException {
+		ps.close();
+		connection.close();
+	}
+
 }
