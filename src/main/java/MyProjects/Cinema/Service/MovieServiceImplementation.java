@@ -14,6 +14,7 @@ import MyProjects.Cinema.Model.Movie;
 
 public class MovieServiceImplementation implements MovieService{
 	PreparedStatement ps;
+	
 	@Override
 	public List<Movie> search(String searchTab) throws SQLException {
 		List<Movie> movies = new ArrayList<>();
@@ -44,6 +45,11 @@ public class MovieServiceImplementation implements MovieService{
 	e.printStackTrace();
 }
 	return movies;
+	}
+	@Override
+	public void addMovie(Movie movie) {
+		// TODO Auto-generated method stub
+		
 	}
 
 }

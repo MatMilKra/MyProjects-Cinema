@@ -10,19 +10,21 @@ import javax.persistence.Id;
 public class Movie {
 
 	@Id
-	@GeneratedValue
 	Integer id;
 	String title;
 	String description;
-	Double ticketPrice;
+	String ticketPrice;
+	static Integer nextId=1;
 	public Movie() {
 		super();
 	}
-	public Movie(String title, String description, Double ticketPrice) {
+	public Movie(String title, String description, String ticketPrice) {
 		super();
 		this.title = title;
 		this.description = description;
 		this.ticketPrice = ticketPrice;
+		id=nextId;
+		nextId++;
 	}
 	public String getTitle() {
 		return title;
@@ -36,10 +38,11 @@ public class Movie {
 	public void setDescription(String description) {
 		this.description = description;
 	}
-	public Double getTicketPrice() {
+
+	public String getTicketPrice() {
 		return ticketPrice;
 	}
-	public void setTicketPrice(Double ticketPrice) {
+	public void setTicketPrice(String ticketPrice) {
 		this.ticketPrice = ticketPrice;
 	}
 	public Integer getId() {
