@@ -14,44 +14,37 @@ import javax.persistence.Persistence;
 
 import MyProjects.Cinema.Model.Movie;
 
-
-
-
-
 public class MovieRead {
 	PreparedStatement ps;
 	Connection connection;
+
 	public MovieRead() throws SQLException {
 		DriverManager.registerDriver(new oracle.jdbc.OracleDriver());
-		connection = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe","hr","hr");
+		connection = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe", "hr", "hr");
 		String query = "SELECT title, description FROM MOVIE WHERE title LIKE ? OR description LIKE ?";
 		ps = connection.prepareStatement(query);
 	}
 
 	public void find(String string) throws SQLException {
 		ResultSet rs;
-		//EntityManagerFactory emf = Persistence.createEntityManagerFactory("App");
-List<Movie> listM=new ArrayList<>();
-Movie movie=new Movie();
+		List<Movie> listM = new ArrayList<>();
+		Movie movie = new Movie();
 		try {
-			ps.setString(1, "%"+string+"%");
-			ps.setString(2, "%"+string+"%");
-		 rs = ps.executeQuery();
+			ps.setString(1, "%" + string + "%");
+			ps.setString(2, "%" + string + "%");
+			rs = ps.executeQuery();
 
-		//EntityManager em = emf.createEntityManager();
-		while(rs.next()) {
-			movie.setTitle(rs.getString(1));
-			movie.setDescription(rs.getString(2));
-			listM.add(movie);
-			
-			
+			while (rs.next()) {
+				movie.setTitle(rs.getString(1));
+				movie.setDescription(rs.getString(2));
+				listM.add(movie);
+
+			}
+
+		} catch (SQLException e) {
+			e.printStackTrace();
 		}
-		
-	
-} catch (SQLException e) {
-	e.printStackTrace();
-}
-		
+
 		System.out.println(listM);
 		close();
 	}
