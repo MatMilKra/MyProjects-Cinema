@@ -53,6 +53,7 @@ Movie movie=new Movie();
 }
 		
 		System.out.println(listM);
+		close();
 	}
 
 	public void close() throws SQLException {
