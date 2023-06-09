@@ -34,7 +34,21 @@
 			<scope>runtime</scope>
 			<optional>true</optional>
 		</dependency>
-		
+	
+	<dependency>
+			<groupId>com.oracle.database.jdbc</groupId>
+			<artifactId>ojdbc8</artifactId>
+			</dependency>
+		<dependency>
+			<groupId>org.apache.logging.log4j</groupId>
+			<artifactId>log4j-api</artifactId>
+			<version>2.11.0</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.logging.log4j</groupId>
+			<artifactId>log4j-core</artifactId>
+			<version>2.11.0</version>
+		</dependency>
 		<!--
 		  <dependency>
             <groupId>com.oracle</groupId>
@@ -43,11 +57,12 @@
             <scope>system</scope>
             <systemPath>d:/projects/ojdbc8.jar</systemPath>
         </dependency>-->
-        	<dependency>
+        <!--	<dependency>
 			<groupId>com.oracle.database.jdbc</groupId>
 			<artifactId>ojdbc8</artifactId>
 			<version>18.3.0.0</version>
 		</dependency>
+		-->
 <!--
 		<dependency>
 			<groupId>com.oracle.database.jdbc</groupId>

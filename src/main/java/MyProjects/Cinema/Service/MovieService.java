@@ -9,7 +9,6 @@ public interface MovieService {
 
 	List<Movie> search(String searchTab) throws SQLException;
 
-	void addMovie(Movie movie);
-	
+	void addMovie(Movie movie) throws SQLException;
 
 }

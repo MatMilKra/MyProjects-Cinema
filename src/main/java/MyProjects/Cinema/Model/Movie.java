@@ -10,6 +10,7 @@ import javax.persistence.Id;
 public class Movie {
 
 	@Id
+//	@GeneratedValue
 	Integer id;
 	String title;
 	String description;
@@ -26,7 +27,7 @@ public class Movie {
 		this.description = description;
 		this.ticketPrice = ticketPrice;
 		id = nextId;
-		nextId++;
+		nextId += 1;
 	}
 
 	public String getTitle() {
@@ -71,7 +72,7 @@ public class Movie {
 		if (getClass() != obj.getClass())
 			return false;
 		Movie other = (Movie) obj;
-		return Objects.equals(description, other.description) && Objects.equals(id, other.id)
+		return Objects.equals(description, other.description)// && Objects.equals(id, other.id)
 				&& Objects.equals(ticketPrice, other.ticketPrice) && Objects.equals(title, other.title);
 	}
 

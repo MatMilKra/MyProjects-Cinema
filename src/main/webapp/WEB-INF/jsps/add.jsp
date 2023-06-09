@@ -11,46 +11,40 @@
 	rel="stylesheet">
 <style><%@include file="/WEB-INF/css/style.css"%></style>
 
-
-<title>Search</title>
+<title>Add movie</title>
 
 </head>
 <body>
 
-
-
-
 	<%@include file="header.jsp"%>
+
 
 	<div id="container">
 
-		<div>
-
-		</div>
 		${message}
-		<table>
 
-			<tr>
-				<td>Title</td>
-				<th>Description</th>
-				<th>Ticket Price</th>
-			</tr>
+		<form action="/add" method="post" enctype="multipart/form-data">
 
-			<c:forEach items="${items}" var="item">
+			<input type="text" name="title" placeholder="Title">
+			<div>
+				<input type="text" name="ticketPrice" placeholder="Ticket Price">
+			</div>
 
-				<tr>
+			<div>
+				<textarea rows="5" cols="50" name="description" size="150"
+					placeholder="Description maximum 150 words&#9998;" value=""></textarea>
+			</div>
 
 
-					<td>${item.title}</td>
-					<td>${item.description}</td>
-					<td>${item.ticketPrice}</td>
-					<td><a href="/item/${item.id}">Details</a></td>
-			</c:forEach>
-		</table>
+			<div>
+				<input type="submit" href="/movie/${movie.id}" value="Add">
+			</div>
+		</form>
+
+
+
+
 
 	</div>
-
-
-
 </body>
 </html>
