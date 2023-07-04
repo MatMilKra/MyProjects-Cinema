@@ -67,7 +67,6 @@ public class MovieServiceImplementation implements MovieService {
 			ps.setString(1, movie.getDescription());
 			ps.setString(2, movie.getTicketPrice());
 			ps.execute();
-			System.out.println("2");
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
